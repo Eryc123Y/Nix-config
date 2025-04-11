@@ -8,7 +8,6 @@
   
   home.packages = with pkgs; [
     eudic drawio
-    zoom-us 
     telegram-desktop
     clash-verge-rev v2ray
     mpv 
@@ -20,7 +19,6 @@
     teams-for-linux
     #lutris 
     bottles
-    obsidian 
     microsoft-edge
     texliveFull
     discord
@@ -29,7 +27,6 @@
     rnote
     xournalpp
     discord
-    wechat-uos
     lmstudio
   ];
 }

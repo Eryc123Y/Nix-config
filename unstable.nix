@@ -1,4 +1,5 @@
-{ config, pkgs-unstable }:
+# unstable.nix
+{ config, pkgs, pkgs-unstable, ... }:
 
 {
   services.ollama = {
@@ -9,12 +10,12 @@
 
   services.open-webui = {
     enable = true;
-    package = pkgs-unstable.open-webui
+    package = pkgs-unstable.open-webui;
     openFirewall = true;
     port = 3000;
   };
   environment.systemPackages = with pkgs-unstable; [
-    #ollama-cuda
-    open-webui
+    #ollama-cuda open-webui
+    vscode wechat-uos zoom-us obsidian
   ];
 }

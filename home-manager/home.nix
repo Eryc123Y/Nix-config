@@ -4,12 +4,6 @@
   home.stateVersion = "24.11"; # Adjust if needed
   home.username = "eric";
   home.homeDirectory = "/home/eric";
-  nixpkgs.config.allowUnfree = true;
-
-  programs.vscode = {
-    enable = true;
-    # Additional configuration options available
-  };
 
   # Import your modular configs
   imports = [
