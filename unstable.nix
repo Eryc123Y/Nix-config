@@ -17,5 +17,6 @@
   environment.systemPackages = with pkgs-unstable; [
     #ollama-cuda open-webui
     vscode wechat-uos zoom-us obsidian
+    mathematica-cuda
   ];
 }

@@ -152,6 +152,12 @@ hardware = {
     capSysAdmin = true;
     openFirewall = true;
   };
+
+  # bluetooth
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
+  };
   
   # Docker Settings
   virtualisation = {
