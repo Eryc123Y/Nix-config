@@ -4,10 +4,10 @@
 {
   
   home.packages = with pkgs; [
-    eudic drawio
+    drawio
     telegram-desktop
     clash-verge-rev v2ray
-    mpv 
+    haruna
     kdePackages.okular
     sunshine
     deskreen arc_unpacker
@@ -25,5 +25,7 @@
     xournalpp
     discord
     lmstudio
+    eudic
+    goldendict-ng # dictionary
   ];
 }

@@ -1,10 +1,26 @@
 { config, pkgs, ... }:
 
+
+#let
+#  signon-plugin-oauth2 = pkgs.callPackage ./pkgs/signon/signon-plugin-oauth2.nix {};
+#   signond = pkgs.callPackage ./pkgs/signon/signond.nix {
+#    withOAuth2 = true;
+#    inherit signon-plugin-oauth2;
+#    withKWallet = true;
+#    signon-kwallet-extension = pkgs.kdePackages.signon-kwallet-extension;
+#  };
+#
+#  signon-ui = pkgs.callPackage ./pkgs/signon/signon-ui.nix {};
+#in
 {
   # KDE Plasma
   services.xserver.enable = true;
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
+  services.gsignond = {
+    enable = true;
+    #plugins = [ signon-plugin-oauth2 ];
+  };
   
 
   # XDG portal
@@ -14,20 +30,18 @@
     config.common.default = [ "kde" ];
   };
 
-  # KDE packages
   environment.systemPackages = with pkgs; [
     kdePackages.qtwayland       # Wayland支持
     kdePackages.qtsvg           # SVG渲染支持
     kdePackages.dolphin
-    kdePackages.ark
-    kdePackages.kate
-    kdePackages.konsole
-    kdePackages.okular
     kdePackages.kdeconnect-kde
-    kdePackages.spectacle
     kdePackages.plasma-thunderbolt
     kdePackages.plasma-integration
-    # plugins
+    # plugins & dependency
+    kdePackages.analitza
+    kdePackages.frameworkintegration
+    kdePackages.qtstyleplugin-kvantum
+    kdePackages.kde-gtk-config
     kdePackages.kaccounts-integration
     kdePackages.kaccounts-providers
     kdePackages.kdepim-addons
@@ -46,8 +60,25 @@
     kdePackages.bluez-qt # widget dependency
     kdePackages.signond # online account integration dependency
     libsignon-glib
+    libsForQt5.qoauth # Qt library for OAuth authentication
     kdePackages.signon-kwallet-extension
     kdePackages.alpaka # ollama client
+    # app
+    kdePackages.discover
+    kdePackages.ktorrent
+    kdePackages.ark
+    kdePackages.kate
+    kdePackages.konsole
+    kdePackages.okular
+    kdePackages.spectacle
+    kdePackages.filelight
+    kdePackages.partitionmanager
+    kdePackages.yakuake
+    kdePackages.ksystemlog
+    kdePackages.kcharselect
+    kdePackages.kweather
+    kdePackages.kget
+    kdePackages.kalgebra
   ];
 
   environment.sessionVariables = {

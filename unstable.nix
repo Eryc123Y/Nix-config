@@ -18,5 +18,7 @@
     #ollama-cuda open-webui
     vscode wechat-uos zoom-us obsidian
     mathematica-cuda
+    anki-bin
+    jetbrains-toolbox
   ];
 }

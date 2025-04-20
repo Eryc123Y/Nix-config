@@ -7,16 +7,52 @@
 
 {
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  
+
+  nixpkgs.overlays = [
+    (final: prev: {
+      formats = prev.formats // {
+        xml = args: {
+          # Required type definition that labwc.nix is trying to access
+          type = let
+            valueType = prev.lib.types.nullOr (prev.lib.types.oneOf [
+              prev.lib.types.bool
+              prev.lib.types.int
+              prev.lib.types.float
+              prev.lib.types.str
+              prev.lib.types.path
+              (prev.lib.types.attrsOf valueType)
+              (prev.lib.types.listOf valueType)
+            ]) // {
+              description = "XML value";
+            };
+          in valueType;
+
+          # Function to generate XML files from Nix values
+          generate = name: value: final.callPackage ({ runCommand, libxml2 }: runCommand name {
+            nativeBuildInputs = [ libxml2 ];
+            value = builtins.toJSON value; # Convert to JSON first as an intermediary
+            passAsFile = [ "value" ];
+            preferLocalBuild = true;
+          } ''
+            # Convert from JSON to XML (simplified example)
+            cat "$valuePath" | xmllint --format - > $out
+          '') {};
+        };
+      };
+    })
+  ];
+
+
   imports =
     [ 
-       #<home-manager/nixos>
       ./hardware-configuration.nix
+      ./zsh.nix
       ./jetbrains.nix
       ./android-studio.nix
       ./kde.nix
       ./unstable.nix
     ];
+
 
   environment.etc."usr/bin/gpservice".source = "/nix/store/krng12kmniwx7373xm0j1880p3671axz-globalprotect-openconnect-1.4.9/bin/gpservice";
   
@@ -46,7 +82,7 @@
   boot.initrd.kernelModules = [ "nvidia" ];
   boot.extraModulePackages = [ config.boot.kernelPackages.nvidia_x11 ];
   boot.kernelModules = [ "br_netfilter" "kvm-amd" ];
-  
+  boot.kernelParams = [ "hid_apple.fnmode=2" ];
   virtualisation.libvirtd.enable = true;
 
 
@@ -69,14 +105,7 @@
 
   # Services
   services.gvfs.enable = true;
-  services.flatpak.enable = false;
-#  systemd.services.flatpak-repo = {
-#  wantedBy = [ "multi-user.target" ];
-#  path = [ pkgs.flatpak ];
-#  script = ''
-#    flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-#  '';
-#  };
+  services.flatpak.enable = true;
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -203,6 +232,7 @@ hardware = {
   
 };
 
+  programs.labwc.enable = false;
   programs.gamemode = {
     enable = true;
     settings = {
@@ -327,12 +357,13 @@ fonts = {
   # $ nix search wget
   environment.systemPackages = with pkgs; [
   # system utilities
-  cachix p7zip-rar peazip
-  gpauth gpclient
-  micro
+  cachix p7zip-rar peazip labwc #wayland stacking compositor
+  gpauth gpclient libsForQt5.qt5ct
+  libsForQt5.kpackage
+  micro toybox
   cudaPackages.cudatoolkit cudaPackages.cudnn
   #unstable.ollama-cuda unstable.open-webui
-  git jetbrains-toolbox docker-client
+  git docker-client
   wget appimage-run gearlever wine 
   wgnord mdbtools 
   # hyprland packages

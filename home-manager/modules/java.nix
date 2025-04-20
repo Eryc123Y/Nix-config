@@ -5,7 +5,6 @@
   home.packages = with pkgs; [
     # Java Development Kits
     jetbrains.jdk       # JetBrains JDK for IntelliJ IDEA
-    bluej
     # Java Build Tools
     maven               # Apache Maven for project management
     gradle              # Gradle build automation tool

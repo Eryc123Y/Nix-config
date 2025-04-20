@@ -10,7 +10,8 @@
     typst typstwriter
     texliveFull
     iverilog
-    logisim-evolution
+    plantuml graphviz
+    #logisim-evolution
     
   ];
 }
