@@ -167,6 +167,8 @@ hardware = {
 
 };
 
+
+
   services.xserver.enable = true;
 
   # Configure keymap in X11
@@ -326,26 +328,36 @@ hardware = {
 fonts = {
     enableDefaultPackages = true;
     fontDir.enable = true;
-
     packages = with pkgs; [
-        noto-fonts
-        noto-fonts-cjk-sans
-        source-han-sans
-        noto-fonts-extra
-        noto-fonts-emoji
-        noto-fonts-emoji-blob-bin
-        wqy_zenhei 
-        source-han-sans
-        source-han-serif
-        jetbrains-mono
-    ];
+    # 多语言支持
+    noto-fonts
+    noto-fonts-cjk-sans
+    noto-fonts-cjk-serif
+    noto-fonts-emoji
 
-    fontconfig.defaultFonts = {
-      serif = ["source-han-serif"];
-      sansSerif = ["source-han-sans"];
-      monospace = ["jetbrains-mono"];
-      emoji = ["noto-fonts-emoji"];
+    # Chinese
+    source-han-sans
+    source-han-serif
+    wqy_zenhei
+
+    # programming
+    jetbrains-mono
+    maple-mono
+
+  ];
+
+  fontconfig = {
+    defaultFonts = {
+      serif = ["Source Han Serif SC" "source-han-serif" "Noto Serif CJK SC" "serif"];
+      sansSerif = ["Source Han Sans SC" "source-han-sans" "Noto Sans CJK SC" "sans-serif"];
+      monospace = ["maple-mono" "JetBrains Mono" "Noto Sans Mono CJK SC" "monospace"];
+      emoji = ["Noto Color Emoji" "emoji"];
     };
+    hinting.enable = true;
+    hinting.style = "medium";  #none, slight, medium, full
+    antialias = true;
+    subpixel.rgba = "rgb";
+  };
 };
 
   nixpkgs.config.permittedInsecurePackages = [
@@ -378,7 +390,7 @@ fonts = {
   steam-run  
   gamemode
   # shell utilities
-  tldr thefuck neofetch nvtopPackages.full
+  tldr neofetch nvtopPackages.full
   # global apps
   libreoffice google-chrome 
   linuxKernel.packages.linux_6_6.digimend

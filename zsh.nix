@@ -8,37 +8,32 @@
     enable = true;
     enableCompletion = true;
     enableBashCompletion = true;
-    autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
 
-    initExtra = ''
-    eval "$(${pkgs.thefuck}/bin/thefuck --alias)"
-  '';
 
     ohMyZsh = {
       enable = true;
-      plugins = [ "git" "sudo" "docker" ];
-      theme = "robbyrussell";
+      plugins = [ "git" "sudo" "docker" "thefuck" ];
+      theme = "agnoster";
     };
 
     shellAliases = {
-        nx = "cd /etc/nixos/";
-        hm = "code ~/.config/home-manager";
-        desktop = "code ~/.local/share/applications/";
-        monashvpn = "sudo gpclient connect vpn.gp.monash.edu";
-        ghub = "cd ~/Documents/GitHub";
-        manus = "cd ~/Documents/OpenManus";
-        wechat = "wechat-uos";
-        update = "sudo nix flake update";
-        switch = "sudo nixos-rebuild switch --flake .";
+      nx = "cd /etc/nixos/";
+      hm = "code ~/.config/home-manager";
+      desktop = "code ~/.local/share/applications/";
+      monashvpn = "sudo gpclient connect vpn.gp.monash.edu";
+      ghub = "cd ~/Documents/GitHub";
+      manus = "cd ~/Documents/OpenManus";
+      wechat = "wechat-uos";
+      update = "sudo nix flake update";
+      switch = "sudo nixos-rebuild switch --flake .";
+      refresh = "killall plasmashell && kstart5 plasmashell";
+    };
   };
 
-    history = {
-      size = 10000;
-      path = "$HOME/.zsh_history";
-      ignoreAllDups = true;
-      ignorePatterns = [ "rm *" "pkill *" "cp *" ];
-    };
+  programs.thefuck = {
+    enable = true;
+    alias = "fuck";
   };
 
 }

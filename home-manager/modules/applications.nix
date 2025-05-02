@@ -6,7 +6,8 @@
   home.packages = with pkgs; [
     drawio
     telegram-desktop
-    clash-verge-rev v2ray
+    #clash-verge-rev
+    v2ray
     haruna
     kdePackages.okular
     sunshine
