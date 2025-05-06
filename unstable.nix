@@ -20,9 +20,5 @@
   };
   environment.systemPackages = with pkgs-unstable; [
     #ollama-cuda open-webui
-    vscode wechat-uos zoom-us obsidian
-    anki-bin
-    jetbrains-toolbox
-    mathematica-cuda
   ];
 }

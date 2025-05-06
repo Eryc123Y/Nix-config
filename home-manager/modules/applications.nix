@@ -28,5 +28,8 @@
     lmstudio
     eudic
     goldendict-ng # dictionary
+    wechat-uos zoom-us obsidian
+    anki-bin
+    mathematica-cuda
   ];
 }

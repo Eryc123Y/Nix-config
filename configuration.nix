@@ -50,7 +50,7 @@
       ./jetbrains.nix
       ./android-studio.nix
       ./kde.nix
-      ./unstable.nix
+      #./unstable.nix
     ];
 
 
