@@ -17,7 +17,7 @@
       ./zsh.nix
       ./jetbrains.nix
       ./android-studio.nix
-      ./kde.nix
+      ./gnome.nix
       #./unstable.nix
     ];
 
