@@ -4,7 +4,6 @@
 {
   
   home.packages = with pkgs; [
-    drawio
     telegram-desktop
     #clash-verge-rev
     v2ray

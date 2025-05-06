@@ -195,7 +195,7 @@ hardware = {
   virtualisation = {
     docker = {
       enable = true;
-      enableNvidia = true;
+      #depricated enableNvidia = true;
       storageDriver = "btrfs";
       rootless = {
         enable = false;
@@ -346,7 +346,6 @@ fonts = {
 
     # programming
     jetbrains-mono
-    maple-mono
 
   ];
 
@@ -354,7 +353,7 @@ fonts = {
     defaultFonts = {
       serif = ["Source Han Serif SC" "source-han-serif" "Noto Serif CJK SC" "serif"];
       sansSerif = ["Source Han Sans SC" "source-han-sans" "Noto Sans CJK SC" "sans-serif"];
-      monospace = ["maple-mono" "JetBrains Mono" "Noto Sans Mono CJK SC" "monospace"];
+      monospace = ["JetBrains Mono" "Noto Sans Mono CJK SC" "monospace"];
       emoji = ["Noto Color Emoji" "emoji"];
     };
     hinting.enable = true;
