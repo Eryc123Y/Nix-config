@@ -159,7 +159,7 @@ hardware = {
   nvidia = {
   open = false;
   modesetting.enable = true;
-  powerManagement.enable = true;
+  powerManagement.enable = false;
   nvidiaSettings = true;
   package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
@@ -194,9 +194,10 @@ hardware = {
   virtualisation = {
     docker = {
       enable = true;
+      enableNvidia = true;
       storageDriver = "btrfs";
       rootless = {
-        enable = true;
+        enable = false;
         setSocketVariable = true;
       };
       daemon.settings = {
@@ -204,10 +205,12 @@ hardware = {
           cdi = true;
         };
       };
-      extraOptions = "--exec-opt native.cgroupdriver=cgroupfs";
+      #extraOptions = "--exec-opt native.cgroupdriver=cgroupfs";
     };
   };
 
+virtualisation.containers.cdi.dynamic.nvidia.enable = true;
+virtualisation.docker.rootless.daemon.settings.features.cdi = true;
 
 
   # steam
@@ -369,6 +372,7 @@ fonts = {
   # $ nix search wget
   environment.systemPackages = with pkgs; [
   # system utilities
+  nvidia-container-toolkit
   cachix p7zip-rar peazip labwc #wayland stacking compositor
   gpauth gpclient libsForQt5.qt5ct
   libsForQt5.kpackage
