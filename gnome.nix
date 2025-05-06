@@ -10,6 +10,8 @@
         #experimental-features=['scale-monitor-framebuffer', 'xwayland-native-scaling']
       #'';
   };
+  services.unclutter.enable = false;
+  
   services.xserver.displayManager.gdm = {
     enable = true;
     wayland = true;
@@ -24,6 +26,7 @@
 
   # GNOME Package
   environment.systemPackages = with pkgs; [
+    gnome-tweaks
     gnomeExtensions.user-themes 
     gnomeExtensions.appindicator 
     gnomeExtensions.dock-from-dash
