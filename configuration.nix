@@ -8,39 +8,6 @@
 {
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  nixpkgs.overlays = [
-    (final: prev: {
-      formats = prev.formats // {
-        xml = args: {
-          # Required type definition that labwc.nix is trying to access
-          type = let
-            valueType = prev.lib.types.nullOr (prev.lib.types.oneOf [
-              prev.lib.types.bool
-              prev.lib.types.int
-              prev.lib.types.float
-              prev.lib.types.str
-              prev.lib.types.path
-              (prev.lib.types.attrsOf valueType)
-              (prev.lib.types.listOf valueType)
-            ]) // {
-              description = "XML value";
-            };
-          in valueType;
-
-          # Function to generate XML files from Nix values
-          generate = name: value: final.callPackage ({ runCommand, libxml2 }: runCommand name {
-            nativeBuildInputs = [ libxml2 ];
-            value = builtins.toJSON value; # Convert to JSON first as an intermediary
-            passAsFile = [ "value" ];
-            preferLocalBuild = true;
-          } ''
-            # Convert from JSON to XML (simplified example)
-            cat "$valuePath" | xmllint --format - > $out
-          '') {};
-        };
-      };
-    })
-  ];
 
   disabledModules = [ "services/mako.nix" ];
 
