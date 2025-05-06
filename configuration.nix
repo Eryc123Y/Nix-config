@@ -24,7 +24,7 @@
 
   environment.etc."usr/bin/gpservice".source = "/nix/store/krng12kmniwx7373xm0j1880p3671axz-globalprotect-openconnect-1.4.9/bin/gpservice";
   
-  home-manager.backupFileExtension = "hm-backup";
+  home-manager.backupFileExtension = "backup";
   #home-manager.users.eric = import ./home-manager/home.nix;
   #home-manager.useGlobalPkgs = true;
   #home-manager.useUserPackages = true;
@@ -129,7 +129,7 @@ hardware = {
   modesetting.enable = true;
   powerManagement.enable = false;
   nvidiaSettings = true;
-  forceFullCompositionPipeline = true;
+  forceFullCompositionPipeline = false;
   package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
   nvidia-container-toolkit.enable = true;

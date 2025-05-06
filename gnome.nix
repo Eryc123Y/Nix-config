@@ -36,5 +36,6 @@
     gnomeExtensions.clipboard-indicator 
     gnomeExtensions.just-perfection
     gnomeExtensions.yakuake
+    gnomeExtensions.kimpanel
   ];
 }
