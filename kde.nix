@@ -17,16 +17,17 @@
   services.xserver.enable = true;
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
-  services.gsignond = {
-    enable = true;
+  # unmaintained
+  #services.gsignond = {
+   # enable = false;
     #plugins = [ signon-plugin-oauth2 ];
-  };
+  #};
   
 
   # XDG portal
   xdg.portal = {
     enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-kde ];
+    extraPortals = [ pkgs.kdePackages.xdg-desktop-portal-kde pkgs.libsForQt5.xdg-desktop-portal-kde ];
     config.common.default = [ "kde" ];
   };
 
