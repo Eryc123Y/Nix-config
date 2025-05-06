@@ -42,6 +42,7 @@
     })
   ];
 
+  disabledModules = [ "services/mako.nix" ];
 
   imports =
     [ 

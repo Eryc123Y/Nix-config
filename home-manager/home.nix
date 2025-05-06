@@ -1,6 +1,7 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
+
   home.stateVersion = "24.11"; # Adjust if needed
   home.username = "eric";
   home.homeDirectory = "/home/eric";
@@ -9,6 +10,7 @@
   #"home-manager/modules/services/window-managers/labwc/labwc.nix"
   #"services/window-managers/labwc/labwc.nix"
   #];
+  #services.mako.enable = true;
   # Import your modular configs
   imports = [
     ./modules/shell.nix
