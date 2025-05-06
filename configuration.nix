@@ -195,7 +195,6 @@ hardware = {
   virtualisation = {
     docker = {
       enable = true;
-      #depricated enableNvidia = true;
       storageDriver = "btrfs";
       rootless = {
         enable = false;
@@ -210,7 +209,6 @@ hardware = {
     };
   };
 
-virtualisation.containers.cdi.dynamic.nvidia.enable = true;
 virtualisation.docker.rootless.daemon.settings.features.cdi = true;
 
 
@@ -260,7 +258,7 @@ virtualisation.docker.rootless.daemon.settings.features.cdi = true;
   #};
 
   # Enable sound with pipewire.
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
