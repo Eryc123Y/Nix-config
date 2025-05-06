@@ -27,11 +27,6 @@
   # GNOME Package
   environment.systemPackages = with pkgs; [
     gnome-tweaks
-    gnomeExtensions.user-themes 
-    gnomeExtensions.appindicator 
-    gnomeExtensions.dock-from-dash
-    gnomeExtensions.clipboard-indicator 
-    gnomeExtensions.just-perfection
     whitesur-gtk-theme
     gnome-session
     gnome-randr
@@ -40,5 +35,6 @@
     gnomeExtensions.dock-from-dash
     gnomeExtensions.clipboard-indicator 
     gnomeExtensions.just-perfection
+    gnomeExtensions.yakuake
   ];
 }
