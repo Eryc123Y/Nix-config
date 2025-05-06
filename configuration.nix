@@ -162,6 +162,7 @@ hardware = {
   modesetting.enable = true;
   powerManagement.enable = false;
   nvidiaSettings = true;
+  forceFullCompositionPipeline = true;
   package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
   nvidia-container-toolkit.enable = true;
