@@ -37,5 +37,6 @@
     gnomeExtensions.just-perfection
     gnomeExtensions.yakuake
     gnomeExtensions.kimpanel
+    gnomeExtensions.hide-top-bar
   ];
 }
