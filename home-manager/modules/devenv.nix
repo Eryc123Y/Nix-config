@@ -13,6 +13,7 @@
     iverilog
     plantuml graphviz
     #logisim-evolution
+    code-cursor
     
   ];
 }
