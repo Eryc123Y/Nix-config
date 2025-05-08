@@ -14,7 +14,7 @@
     zotero
     calibre
     teams-for-linux
-    #lutris 
+    lutris 
     bottles
     microsoft-edge
     texliveFull
@@ -25,7 +25,7 @@
     xournalpp
     discord
     lmstudio
-    goldendict-ng # dictionary
+    eudic # dictionary
     wechat-uos zoom-us obsidian
     anki-bin
     mathematica-cuda
