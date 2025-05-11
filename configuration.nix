@@ -75,6 +75,20 @@
   services.gvfs.enable = true;
   services.flatpak.enable = true;
 
+  services.ollama = {
+    enable = true;
+    acceleration = "cuda"; 
+  };
+
+  services.open-webui = {
+    enable = true;
+    port = 3000;
+    environment = {
+    OLLAMA_API_BASE_URL = "http://127.0.0.1:11434/api"; # Often needed [5]
+    OLLAMA_BASE_URL = "http://127.0.0.1:11434";        # Often needed [5]
+    };
+  };
+
   # Enable networking
   networking.networkmanager.enable = true;
   networking.firewall.enable = false;
@@ -344,7 +358,6 @@ fonts = {
   libsForQt5.kpackage
   micro toybox
   cudaPackages.cudatoolkit cudaPackages.cudnn
-  #unstable.ollama-cuda unstable.open-webui
   git docker-client
   wget appimage-run gearlever wine 
   wgnord mdbtools 

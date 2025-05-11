@@ -1,9 +1,9 @@
 { config, pkgs, ... }:
 
-
 {
   
   home.packages = with pkgs; [
+    open-webui
     telegram-desktop
     clash-verge-rev
     ollama-cuda
