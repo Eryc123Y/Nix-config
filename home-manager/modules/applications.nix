@@ -5,7 +5,9 @@
   
   home.packages = with pkgs; [
     telegram-desktop
-    #clash-verge-rev
+    clash-verge-rev
+    ollama-cuda
+    baidupcs-go
     v2ray
     haruna
     kdePackages.okular
