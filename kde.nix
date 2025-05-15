@@ -62,7 +62,7 @@
     kdePackages.signond # online account integration dependency
     libsignon-glib
     libsForQt5.qoauth # Qt library for OAuth authentication
-    kdePackages.signon-kwallet-extension
+    #kdePackages.signon-kwallet-extension
     kdePackages.alpaka # ollama client
     # app
     kdePackages.discover

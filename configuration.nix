@@ -83,10 +83,6 @@
   services.open-webui = {
     enable = true;
     port = 3000;
-    environment = {
-    OLLAMA_API_BASE_URL = "http://127.0.0.1:11434/api"; # Often needed [5]
-    OLLAMA_BASE_URL = "http://127.0.0.1:11434";        # Often needed [5]
-    };
   };
 
   # Enable networking
@@ -359,7 +355,7 @@ fonts = {
   micro toybox
   cudaPackages.cudatoolkit cudaPackages.cudnn
   git docker-client
-  wget appimage-run gearlever wine 
+  wget appimage-run gearlever wineWowPackages.stableFull
   wgnord mdbtools 
   # hyprland packages
   #hyprland kitty rofi-wayland waybar nautilus

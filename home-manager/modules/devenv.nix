@@ -14,6 +14,7 @@
     plantuml graphviz
     #logisim-evolution
     code-cursor
+    quarto
     
   ];
 }
