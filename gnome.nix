@@ -33,9 +33,10 @@
     gnomeExtensions.user-themes
     gnomeExtensions.appindicator 
     gnomeExtensions.dock-from-dash
+    gnomeExtensions.vitals
+    gnomeExtensions.force-quit
     gnomeExtensions.clipboard-indicator 
     gnomeExtensions.just-perfection
-    gnomeExtensions.yakuake
     gnomeExtensions.kimpanel
     gnome-control-center
   ];

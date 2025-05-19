@@ -30,6 +30,6 @@
     eudic # dictionary
     wechat-uos zoom-us obsidian
     anki-bin
-    mathematica-cuda
+    #mathematica-cuda
   ];
 }
