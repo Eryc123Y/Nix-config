@@ -18,7 +18,7 @@
     teams-for-linux
     lutris 
     bottles
-    microsoft-edge
+    #microsoft-edge
     texliveFull
     discord
     mathpix-snipping-tool
