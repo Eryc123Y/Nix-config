@@ -80,10 +80,10 @@
     acceleration = "cuda"; 
   };
 
-  services.open-webui = {
-    enable = true;
-    port = 3000;
-  };
+#  services.open-webui = {
+#    enable = true;
+#    port = 3000;
+#  };
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -147,7 +147,7 @@ hardware = {
 };
 
 
-
+  nixpkgs.config.allowUnsupportedSystem = true;
   services.xserver.enable = true;
 
   # Configure keymap in X11

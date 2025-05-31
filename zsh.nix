@@ -18,6 +18,7 @@
     };
 
     shellAliases = {
+      gc = "nix-collect-garbage";
       nx = "cd /etc/nixos/";
       hm = "code ~/.config/home-manager";
       desktop = "code ~/.local/share/applications/";

@@ -3,7 +3,7 @@
 {
   
   home.packages = with pkgs; [
-    open-webui
+   #open-webui
     telegram-desktop
     clash-verge-rev
     ollama-cuda
@@ -31,5 +31,8 @@
     wechat-uos zoom-us obsidian
     anki-bin
     #mathematica-cuda
+    firefox
+    arc-browser
+    brave
   ];
 }

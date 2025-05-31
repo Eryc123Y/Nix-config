@@ -3,7 +3,7 @@
 {
  
   home.packages = with pkgs; [
-    jetbrains-toolbox vscode-fhs
+    jetbrains-toolbox vscode
     d2 # Diagramming tool
     docker
     nodejs

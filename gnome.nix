@@ -2,7 +2,7 @@
 
 {
   # GNOME
-  services.xserver.desktopManager.gnome = {
+  services.desktopManager.gnome = {
   	enable = true;
   	#extraGSettingsOverridePackages = [ pkgs.mutter ];
           #extraGSettingsOverrides = ''
@@ -12,7 +12,7 @@
   };
   services.unclutter.enable = false;
   
-  services.xserver.displayManager.gdm = {
+  services.displayManager.gdm = {
     enable = true;
     wayland = true;
   };
