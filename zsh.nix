@@ -13,7 +13,7 @@
 
     ohMyZsh = {
       enable = true;
-      plugins = [ "git" "sudo" "docker" "thefuck" ];
+      plugins = [ "git" "sudo" "docker" ];
       theme = "agnoster";
     };
 
@@ -31,10 +31,4 @@
       refresh = "killall plasmashell && kstart5 plasmashell";
     };
   };
-
-  programs.thefuck = {
-    enable = true;
-    alias = "fuck";
-  };
-
 }
