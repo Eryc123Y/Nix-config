@@ -4,6 +4,7 @@
   
   home.packages = with pkgs; [
    #open-webui
+    megasync
     telegram-desktop
     clash-verge-rev
     ollama-cuda
