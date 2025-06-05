@@ -8,25 +8,11 @@
   # Import shared programming environment
   imports = [
     ./programming.nix
+    ./zsh.nix
   ];
   
   # Basic user settings
   home.sessionVariables = {
     EDITOR = "micro";
-  };
-  
-  # Shell configuration
-  programs.zsh = {
-    enable = true;
-    enableCompletion = true;
-    autosuggestion.enable = true;
-    syntaxHighlighting.enable = true;
-    
-    shellAliases = {
-      ll = "ls -la";
-      la = "ls -la";
-      ".." = "cd ..";
-      "..." = "cd ../..";
-    };
   };
 }

@@ -24,8 +24,7 @@
     ]))
     
     # Java Development (OpenJDK for better cross-platform compatibility)
-    jdk17
-    jdk21
+    jdk21  # Primary JDK
     maven
     gradle
     visualvm

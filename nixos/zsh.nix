@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
 
 {
+  # System-level ZSH configuration for NixOS (minimal, user config handled by home-manager)
   environment.shells = with pkgs; [ zsh ];
   users.defaultUserShell = pkgs.zsh;
 
@@ -9,26 +10,11 @@
     enableCompletion = true;
     enableBashCompletion = true;
     syntaxHighlighting.enable = true;
-
-
-    ohMyZsh = {
-      enable = true;
-      plugins = [ "git" "sudo" "docker" ];
-      theme = "agnoster";
-    };
-
-    shellAliases = {
-      gc = "nix-collect-garbage";
-      nx = "cd /etc/nixos/";
-      hm = "code ~/.config/home-manager";
-      desktop = "code ~/.local/share/applications/";
-      monashvpn = "sudo gpclient connect vpn.gp.monash.edu";
-      ghub = "cd ~/Documents/GitHub";
-      manus = "cd ~/Documents/OpenManus";
-      wechat = "wechat-uos";
-      update = "sudo nix flake update";
-      switch = "sudo nixos-rebuild switch --flake .";
-      refresh = "killall plasmashell && kstart5 plasmashell";
-    };
+    
+    # Only system-wide settings here - user aliases are in home-manager
+    shellInit = ''
+      # System-wide ZSH initialization
+      # User-specific settings are handled by home-manager
+    '';
   };
 }

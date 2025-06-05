@@ -33,6 +33,16 @@
     };
   };
 
+  # macOS system-level shell configuration
+  programs.zsh = {
+    enable = true;
+    enableCompletion = true;
+    enableBashCompletion = true;
+    
+    # Note: User aliases are handled by home-manager shared configuration
+    # This only configures system-level ZSH settings
+  };
+
   # Essential packages for development (no GUI apps)
   environment.systemPackages = with pkgs; [
     # Essential development tools

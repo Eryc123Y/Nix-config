@@ -31,6 +31,17 @@ build_config() {
     echo "Building configuration for platform: $platform"
     echo "Action: $action"
     
+    # Run validation for switch action
+    if [[ "$action" == "switch" ]] && [[ -x "./validate.sh" ]]; then
+        echo "🔍 Running pre-build validation..."
+        ./validate.sh --quiet || {
+            echo "❌ Validation failed. Aborting build."
+            exit 1
+        }
+        echo "✅ Validation passed."
+        echo ""
+    fi
+    
     case "$platform" in
         "nixos")
             echo "Building NixOS configuration..."

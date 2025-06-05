@@ -4,6 +4,7 @@
 {
   imports = [
     ./shared/base.nix
+    # Note: programming-linux.nix is not imported here as it contains Linux-specific tools
   ];
 
   home.homeDirectory = "/Users/eric";
@@ -29,5 +30,11 @@
   home.sessionVariables = {
     # Disable homebrew auto-update since brew is already installed
     HOMEBREW_NO_AUTO_UPDATE = "1";
+  };
+
+  # Override ZSH aliases for macOS
+  programs.zsh.shellAliases = {
+    # macOS-specific configuration directory
+    nx = "cd ~/.config/nix-darwin/";
   };
 }
