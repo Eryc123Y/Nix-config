@@ -1,34 +1,73 @@
 # flake.nix
 {
+  description = "Eric's cross-platform Nix configuration";
+
   inputs = {
+    # Use only unstable nixpkgs channel
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    # Home Manager
+    
+    # Latest nix-darwin channel
+    nix-darwin = {
+      url = "github:LnL7/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    
+    # Latest home-manager channel
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }:
+  outputs = { self, nixpkgs, nix-darwin, home-manager, ... }:
     let
-      system = "x86_64-linux";
-
-      pkgs = import nixpkgs {
+      mkSystem = system: modules: nixpkgs.lib.nixosSystem {
         inherit system;
-        config.allowUnfree = true;
-      };
-    in {
-      nixosConfigurations.EricPC = nixpkgs.lib.nixosSystem {
-        inherit system;
-        modules = [
-          ./configuration.nix
-          home-manager.nixosModules.home-manager {
+        modules = modules ++ [
+          home-manager.nixosModules.home-manager
+          {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.eric = import ./home-manager/home.nix;
+            nixpkgs.config.allowUnfree = true;
           }
         ];
       };
+
+      mkDarwin = system: modules: nix-darwin.lib.darwinSystem {
+        inherit system;
+        modules = modules ++ [
+          home-manager.darwinModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            nixpkgs.config.allowUnfree = true;
+          }
+        ];
+      };
+    in {
+      # NixOS Configuration
+      nixosConfigurations.EricPC = mkSystem "x86_64-linux" [
+        ./nixos/configuration.nix
+        {
+          home-manager.users.eric = import ./home-manager/nixos.nix;
+        }
+      ];
+
+      # nix-darwin Configuration
+      darwinConfigurations.EricMac = mkDarwin "x86_64-darwin" [
+        ./darwin/configuration.nix
+        {
+          home-manager.users.eric = import ./home-manager/darwin.nix;
+        }
+      ];
+
+      # Also support Apple Silicon
+      darwinConfigurations.EricMac-aarch64 = mkDarwin "aarch64-darwin" [
+        ./darwin/configuration.nix
+        {
+          home-manager.users.eric = import ./home-manager/darwin.nix;
+        }
+      ];
     };
 }
 
