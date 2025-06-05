@@ -6,7 +6,7 @@
     settings = {
       experimental-features = [ "nix-command" "flakes" ];
       trusted-users = [ "root" "eric" ];
-      auto-optimise-store = true;
+      # Note: auto-optimise-store is problematic on macOS, use optimise.automatic instead
     };
     
     # Garbage collection

@@ -106,16 +106,6 @@
     LC_TIME           = "en_AU.UTF-8";
   };
 
-  nixpkgs.config.allowUnfree = true;
-
-  # garbage collection
-  nix.gc = {
-    automatic = true;
-    options = "--delete-older-than 5d";
-    dates = "Sun 19:00";
-  };
-  nix.optimise.automatic = true;
-
   # Graphics
   services.xserver.videoDrivers = [ "nvidia" "modesetting" ];
   services.xserver.screenSection = ''

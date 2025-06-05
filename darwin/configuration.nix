@@ -9,6 +9,7 @@
   # macOS system settings
   system = {
     stateVersion = 4;
+    primaryUser = "eric";  # Required for system defaults to work
     
     defaults = {
       dock = {
@@ -53,10 +54,8 @@
     docker
   ];
 
-  # Services
-  services = {
-    nix-daemon.enable = true;
-  };
+  # Services - nix-daemon is automatically enabled
+  # services.nix-daemon.enable = true;  # No longer needed
 
   # Programs
   programs = {
@@ -77,6 +76,7 @@
     source-han-sans
   ];
 
-  # macOS-specific settings
-  security.pam.enableSudoTouchId = true;
+  # Enable Touch ID for sudo (if available)
+  # Note: This setting may not be available in all nix-darwin versions
+  # security.pam.enableSudoTouchId = true;
 }

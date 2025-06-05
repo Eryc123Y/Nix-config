@@ -4,6 +4,7 @@
 {
   imports = [
     ./shared/base.nix
+    ./shared/programming-linux.nix
   ];
 
   home.homeDirectory = "/home/eric";
@@ -74,21 +75,6 @@
     
     # PDF viewers and document tools (KDE packages)
     kdePackages.okular
-  ];
-}
-    sunshine
-    deskreen
-    
-    # Archive tools
-    arc_unpacker
-    
-    # Dictionary
-    eudic
-    
-    # Development IDEs (GUI)
-    jetbrains-toolbox
-    vscode
-    code-cursor
   ];
 
   # NixOS-specific programs

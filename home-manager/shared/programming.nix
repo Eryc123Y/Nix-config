@@ -23,8 +23,9 @@
       beautifulsoup4
     ]))
     
-    # Java Development
-    jetbrains.jdk
+    # Java Development (OpenJDK for better cross-platform compatibility)
+    jdk17
+    jdk21
     maven
     gradle
     visualvm
@@ -33,7 +34,7 @@
     gcc
     cmake
     gdb
-    valgrind
+    # valgrind  # Not available on macOS
     ccache
     lldb
     pkg-config
@@ -70,24 +71,15 @@
   # Programming environment variables
   home.sessionVariables = {
     EDITOR = "micro";
-    JAVA_HOME = "${pkgs.jetbrains.jdk}";
+    JAVA_HOME = "${pkgs.jdk21}";
     CC = "${pkgs.gcc}/bin/gcc";
     CXX = "${pkgs.gcc}/bin/g++";
     R_PROFILE_USER = "${pkgs.R}/etc/Rprofile.site";
   };
-}
 
   # Git configuration
   programs.git = {
     enable = true;
     # Add your git config here if needed
-  };
-
-  # Zsh configuration
-  programs.zsh = {
-    enable = true;
-    enableCompletion = true;
-    enableAutosuggestions = true;
-    syntaxHighlighting.enable = true;
   };
 }
