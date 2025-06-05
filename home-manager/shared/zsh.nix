@@ -72,7 +72,7 @@
     };
 
     # Additional configuration
-    initExtra = ''
+    initContent = ''
       # Set EDITOR
       export EDITOR="micro"
       
