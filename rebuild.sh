@@ -34,7 +34,7 @@ build_config() {
     # Run validation for switch action
     if [[ "$action" == "switch" ]] && [[ -x "./validate.sh" ]]; then
         echo "🔍 Running pre-build validation..."
-        ./validate.sh --quiet || {
+        ./validate.sh || {
             echo "❌ Validation failed. Aborting build."
             exit 1
         }

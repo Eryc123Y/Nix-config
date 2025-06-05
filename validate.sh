@@ -5,16 +5,8 @@
 
 set -e
 
-# Check for quiet flag
-QUIET=false
-if [[ "$1" == "--quiet" ]]; then
-    QUIET=true
-fi
-
-if [[ "$QUIET" == "false" ]]; then
-    echo "🔍 Validating Cross-Platform Nix Configuration..."
-    echo
-fi
+echo "🔍 Validating Cross-Platform Nix Configuration..."
+echo
 
 # Check if we're in the right directory
 if [[ ! -f "flake.nix" ]]; then
@@ -23,35 +15,29 @@ if [[ ! -f "flake.nix" ]]; then
 fi
 
 # Validate flake syntax
-if [[ "$QUIET" == "false" ]]; then
-    echo "📋 Checking flake syntax..."
-fi
+echo "📋 Checking flake syntax..."
 
 if nix flake check --no-build 2>/dev/null; then
-    if [[ "$QUIET" == "false" ]]; then
-        echo "✅ Flake syntax is valid"
-    fi
+    echo "✅ Flake syntax is valid"
 else
     echo "❌ Flake syntax validation failed"
     exit 1
 fi
 
-if [[ "$QUIET" == "false" ]]; then
-    # Show available configurations
-    echo
-    echo "🏗️ Available configurations:"
-    nix flake show . 2>/dev/null | grep -E "(nixosConfigurations|darwinConfigurations)"
-    
-    echo
-    echo "🎉 Configuration validation complete!"
-    echo
-    echo "Next steps:"
-    if [[ -f "/etc/NIXOS" ]]; then
-        echo "  • Apply configuration: sudo nixos-rebuild switch --flake .#EricPC"
-        echo "  • Or use the helper: ./rebuild.sh"
-    else
-        echo "  • Apply configuration: darwin-rebuild switch --flake .#EricMac"
-        echo "  • Or use the helper: ./rebuild.sh"
-    fi
-    echo "  • Update packages: nix flake update"
+# Show available configurations
+echo
+echo "🏗️ Available configurations:"
+nix flake show . 2>/dev/null | grep -E "(nixosConfigurations|darwinConfigurations)"
+
+echo
+echo "🎉 Configuration validation complete!"
+echo
+echo "Next steps:"
+if [[ -f "/etc/NIXOS" ]]; then
+    echo "  • Apply configuration: sudo nixos-rebuild switch --flake .#EricPC"
+    echo "  • Or use the helper: ./rebuild.sh"
+else
+    echo "  • Apply configuration: darwin-rebuild switch --flake .#EricMac"
+    echo "  • Or use the helper: ./rebuild.sh"
 fi
+echo "  • Update packages: nix flake update"
