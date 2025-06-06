@@ -38,6 +38,7 @@
     gnomeExtensions.clipboard-indicator 
     gnomeExtensions.just-perfection
     gnomeExtensions.kimpanel
+    gnomeExtensions.astra-monitor
     gnome-control-center
   ];
 }
