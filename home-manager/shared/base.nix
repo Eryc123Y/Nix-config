@@ -8,7 +8,7 @@
   # Import shared programming environment
   imports = [
     ./programming.nix
-    ./zsh.nix
+    ./shell.nix
     ./utils.nix
   ];
   

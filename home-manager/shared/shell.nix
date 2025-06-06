@@ -1,6 +1,43 @@
 { config, pkgs, lib, ... }:
 
 {
+  programs.kitty = {
+  enable = true;
+
+  # Kitty settings: these are mapped directly to kitty.conf options
+  settings = {
+    font_family = "JetBrainsMono Nerd Font";
+    font_size = 14;
+    # Appearance
+    background_opacity = "0.90";
+    enable_audio_bell = false;
+    confirm_os_window_close = 0;
+    window_padding_width = 10;
+    tab_bar_edge = "top";
+    tab_bar_style = "powerline";
+    # Performance and behavior
+    repaint_delay = 10;
+    input_delay = 1;
+    sync_to_monitor = true;
+    # Clipboard and mouse
+    copy_on_select = true;
+    paste_actions = "paste";
+    mouse_hide_wait = "-1.0";
+    # Scrolling
+    scrollback_lines = 10000;
+    wheel_scroll_multiplier = 5;
+    # Colors (choose a theme you like, or set via 'theme' option below)
+    foreground = "#d8dee9";
+    background = "#2e3440";
+    selection_foreground = "#2e3440";
+    selection_background = "#d8dee9";
+    # Cursor
+    cursor_shape = "beam";
+    cursor_blink_interval = 0;
+    };
+  # Note: Using custom colors above instead of theme to avoid themeFile deprecation
+  };
+
   programs.zsh = {
     enable = true;
     enableCompletion = true;

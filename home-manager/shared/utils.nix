@@ -5,5 +5,8 @@
   # Shared tools and utilities for home-manager
   home.packages = with pkgs; [
     ollama
+    
+    # command-line utilities
+    kitty # setting under shell.nix
   ];
 }
