@@ -21,7 +21,7 @@
     git = {
       enable = true;
       extraConfig = {
-        credential.helper = "osxkeychain";
+        #credential.helper = "osxkeychain";
       };
     };
   };
