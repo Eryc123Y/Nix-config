@@ -64,7 +64,7 @@
     v2ray
     
     # AI and ML
-    ollama-cuda
+    #ollama moved to shared/utils.nix
     
     # Archive tools
     arc_unpacker

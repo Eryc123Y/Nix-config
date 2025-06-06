@@ -9,6 +9,7 @@
   imports = [
     ./programming.nix
     ./zsh.nix
+    ./utils.nix
   ];
   
   # Basic user settings
