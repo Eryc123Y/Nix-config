@@ -12,7 +12,6 @@
   # NixOS-specific packages (including GUI applications and IDEs)
   home.packages = with pkgs; [
     # Communication
-    telegram-desktop
     discord
     teams-for-linux
     wechat-uos
