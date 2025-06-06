@@ -23,7 +23,6 @@
     # Development IDEs and GUI tools
     jetbrains-toolbox
     vscode
-    code-cursor
     
     # Media and entertainment
     haruna
