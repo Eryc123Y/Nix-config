@@ -47,7 +47,6 @@
     # Documentation and text processing
     pandoc       # ✅ No TeX dependencies, safe to use
     typst        # ✅ Modern typesetting, no TeX dependencies  
-    typstwriter  # ✅ Typst editor, no TeX dependencies
     # quarto     # Disabled - has heavy TexLive dependencies that conflict with overlay
     
     # Diagramming and planning
@@ -68,6 +67,7 @@
     
     # Development environments
     docker
+    alacritty # terminal
   ];
   
   # Programming environment variables
