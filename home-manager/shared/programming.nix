@@ -39,13 +39,13 @@
     pkg-config
     
     # R Development
-    R
+    # R  # Temporarily disabled - has TexLive dependencies
     
     # Documentation and text processing
-    pandoc
-    typst
-    typstwriter
-    quarto
+    # pandoc  # Temporarily disabled - has TexLive dependencies
+    # typst  # Temporarily disabled - may have TexLive dependencies
+    # typstwriter  # Temporarily disabled - may have TexLive dependencies
+    # quarto  # Keep this disabled for now as it may still have TexLive dependencies
     
     # Diagramming and planning
     d2
@@ -73,7 +73,7 @@
     JAVA_HOME = "${pkgs.jdk21}";
     CC = "${pkgs.gcc}/bin/gcc";
     CXX = "${pkgs.gcc}/bin/g++";
-    R_PROFILE_USER = "${pkgs.R}/etc/Rprofile.site";
+    # R_PROFILE_USER = "${pkgs.R}/etc/Rprofile.site";  # Disabled while R is commented out
   };
 
   # Git configuration

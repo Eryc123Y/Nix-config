@@ -41,18 +41,6 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             nixpkgs.config.allowUnfree = true;
-            
-            # Override packages that cause libfaketime build issues
-            nixpkgs.overlays = [(final: prev: {
-              libfaketime = prev.libfaketime.overrideAttrs (oldAttrs: {
-                doCheck = false;
-              });
-              
-              # Disable TeX Live packages that cause issues
-              texliveBasic = prev.hello;
-              texliveMedium = prev.hello;
-              texliveFull = prev.hello;
-            })];
           }
         ];
       };
@@ -73,13 +61,13 @@
         }
       ];
 
-      # Also support Apple Silicon
-      darwinConfigurations.EricMac-aarch64 = mkDarwin "aarch64-darwin" [
-        ./darwin/configuration.nix
-        {
-          home-manager.users.eric = import ./home-manager/darwin.nix;
-        }
-      ];
+      # Also support Apple Silicon - minimal for initial install
+      darwinConfigurations.EricMac-aarch64 = nix-darwin.lib.darwinSystem {
+        system = "aarch64-darwin";
+        modules = [
+          ./darwin/minimal-configuration.nix
+        ];
+      };
     };
 }
 

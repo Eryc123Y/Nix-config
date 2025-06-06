@@ -33,6 +33,9 @@
     };
   };
 
+  # Fix for GID mismatch
+  ids.gids.nixbld = 350;
+
   # macOS system-level shell configuration
   programs.zsh = {
     enable = true;
@@ -66,11 +69,6 @@
 
   # Services - nix-daemon is automatically enabled
   # services.nix-daemon.enable = true;  # No longer needed
-
-  # Programs
-  programs = {
-    zsh.enable = true;
-  };
 
   # User configuration
   users.users.eric = {
