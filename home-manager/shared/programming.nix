@@ -67,7 +67,6 @@
     
     # Development environments
     docker
-    alacritty # terminal
   ];
   
   # Programming environment variables
@@ -82,6 +81,6 @@
   # Git configuration
   programs.git = {
     enable = true;
-    # Add your git config here if needed
+    userName = "Eryc123Y";
   };
 }
