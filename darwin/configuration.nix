@@ -86,11 +86,6 @@
     powerline-fonts # Powerline fonts for terminal for zsh theme
   ];
 
-  # ollama settings
-  services.ollama = {
-    enable = true;
-  };
-
   # Enable Touch ID for sudo (if available)
   # Note: This setting may not be available in all nix-darwin versions
   # security.pam.enableSudoTouchId = true;

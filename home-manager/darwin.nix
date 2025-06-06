@@ -26,6 +26,13 @@
     };
   };
 
+
+  # ollama settings
+  services.ollama = {
+    enable = true;
+  };
+
+
   # macOS-specific environment variables
   home.sessionVariables = {
     # Homebrew is now managed by nix-darwin

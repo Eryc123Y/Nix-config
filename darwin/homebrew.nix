@@ -81,7 +81,7 @@
     
     # Formulae (command-line tools) - keeping empty for now since most are handled by nix
     brews = [
-      # Add any CLI tools here if needed
+      # AI and ML tools are now handled by nixpkgs
     ];
     
     # Mac App Store apps (if any)
