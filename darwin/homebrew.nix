@@ -40,6 +40,7 @@
       "jetbrains-toolbox"
       "visual-studio-code"
       "cursor"
+      "kate"
       
       # Design and productivity
       "canva" 
