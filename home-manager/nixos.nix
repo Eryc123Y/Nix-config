@@ -20,8 +20,6 @@
     
     # Browsers
     firefox
-    arc-browser
-    brave
     
     # Development IDEs and GUI tools
     jetbrains-toolbox

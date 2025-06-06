@@ -7,7 +7,7 @@ This repository contains a unified, flake-based Nix configuration that supports 
 ✅ **NixOS Configuration**: Fully operational and actively used  
 ✅ **macOS Configuration**: Fully operational and tested on Apple Silicon  
 ✅ **Cross-Platform Programming Environment**: Complete with Java, Python, Node.js, C/C++  
-✅ **Revolutionary Homebrew Management**: All 24 GUI applications declaratively managed  
+✅ **Revolutionary Homebrew Management**: All 27 GUI applications declaratively managed  
 ✅ **Automatic Updates**: Homebrew apps auto-update during nix-darwin rebuilds  
 ✅ **Zero Manual Maintenance**: No more manual brew commands required  
 ✅ **Documentation**: Comprehensive and up-to-date setup guide  
@@ -41,7 +41,8 @@ The configuration uses a **shared-first approach** with platform-specific overla
 │       ├── base.nix                # Base home-manager settings & imports
 │       ├── programming.nix         # Core programming environment
 │       ├── programming-linux.nix   # Linux-specific development tools
-│       └── zsh.nix                 # Enhanced cross-platform ZSH configuration
+│       ├── shell.nix               # Enhanced cross-platform shell configuration (ZSH + Kitty)
+│       └── utils.nix               # Shared tools and utilities
 ├── 🔗 shared/                      # Platform-agnostic configurations
 │   └── nix-settings.nix            # Common Nix daemon settings & garbage collection
 └── 📦 packages/                    # Custom package definitions
@@ -60,7 +61,7 @@ The configuration uses a **shared-first approach** with platform-specific overla
 
 Consistent development tools across both platforms:
 
-**Languages & Runtimes:**
+#### Languages & Runtimes
 
 - **Java**: JDK 21 (global), project-specific via nix-shell
 - **Python**: Python 3 with data science stack (NumPy, Pandas, Scikit-learn, Jupyter)
@@ -68,13 +69,13 @@ Consistent development tools across both platforms:
 - **C/C++**: GCC, CMake, GDB, LLDB
 - **R**: Statistical computing environment
 
-**Build Tools & Package Managers:**
+#### Build Tools & Package Managers
 
 - Maven, Gradle (Java)
 - CMake, pkg-config (C/C++)
 - Docker for containerization
 
-**Documentation & Text Processing:**
+#### Documentation & Text Processing
 
 - **pandoc**: Document conversion (✅ verified no TeX dependencies)
 - **typst**: Modern typesetting system (✅ verified no TeX dependencies)  
@@ -83,7 +84,7 @@ Consistent development tools across both platforms:
 - ~~R statistical computing~~ (temporarily disabled due to TeX Live conflicts)
 - ~~Quarto~~ (disabled due to heavy TeX Live dependencies)
 
-**Development Utilities:**
+#### Development Utilities
 
 - Git with global configuration
 - Shell enhancements (tldr, neofetch, micro editor)
@@ -95,12 +96,12 @@ Consistent development tools across both platforms:
 
 Complete desktop computing environment:
 
-**Desktop Environments:**
+#### Desktop Environments
 
 - GNOME (modern, user-friendly)
 - KDE Plasma (customizable, feature-rich)
 
-**GUI Applications:**
+#### GUI Applications
 
 - **Browsers**: Firefox, Arc, Brave
 - **IDEs**: JetBrains Toolbox, VS Code, Cursor
@@ -116,7 +117,7 @@ Complete desktop computing environment:
 - **Remote Access**: Sunshine, Deskreen
 - **PDF Tools**: Okular (KDE)
 
-**System Features:**
+#### System Features
 
 - Audio/video codecs and drivers
 - Graphics drivers and hardware acceleration  
@@ -128,11 +129,11 @@ Complete desktop computing environment:
 
 ### 🍎 macOS-Specific Features
 
-**Revolutionary Declarative Homebrew Management:**
+#### Revolutionary Declarative Homebrew Management
 
 nix-darwin now provides complete declarative management of Homebrew applications with zero manual intervention required:
 
-**🎯 Core Philosophy:**
+#### 🎯 Core Philosophy
 
 - **Declarative Everything**: All GUI applications defined in version-controlled configuration files
 - **Automatic Updates**: Homebrew and all apps update during every system rebuild
@@ -140,7 +141,7 @@ nix-darwin now provides complete declarative management of Homebrew applications
 - **Configuration as Code**: All installations documented, reproducible, and auditable
 - **Self-Maintaining**: System automatically maintains clean state
 
-**📱 Managed Applications (24 GUI Apps):**
+#### 📱 Managed Applications (27 GUI Apps)
 
 - **☁️ Cloud Storage & Sync**:
   - Baidu Netdisk, Google Drive, Nutstore
@@ -170,7 +171,7 @@ nix-darwin now provides complete declarative management of Homebrew applications
   - Steam
 
 - **📚 Academic & Research**:
-  - Zotero
+  - Zotero, R, RStudio, MacTeX
 
 **🔧 Homebrew Configuration Features:**
 
@@ -195,48 +196,6 @@ nix-darwin now provides complete declarative management of Homebrew applications
 - **No GUI Conflicts**: Homebrew manages GUI apps, nix manages CLI tools  
 - **Seamless Integration**: Development tools work perfectly with GUI applications
 - **Cross-Platform Consistency**: Same CLI environment as NixOS for unified workflows
-
-- **💬 Communication**: 
-  - QQ, WeChat, WhatsApp
-
-- **🤖 AI & Productivity Tools**: 
-  - ChatGPT, Cherry Studio
-
-- **⚙️ System & Network Tools**: 
-  - Clash Verge Rev, Stats
-
-- **📄 Office & Productivity**: 
-  - Microsoft Office, Microsoft Auto Update
-
-- **🎮 Gaming & Entertainment**: 
-  - Steam
-
-- **📚 Academic & Research**: 
-  - Zotero
-
-**🔧 Homebrew Configuration Features:**
-
-- **Auto-Update**: Homebrew itself updates during nix-darwin rebuild
-- **Auto-Upgrade**: All casks upgrade to latest versions automatically
-- **Smart Cleanup**: Apps not in configuration are automatically removed (`cleanup = "zap"`)
-- **Verbose Logging**: Detailed output during updates for transparency
-- **Error Handling**: Robust error detection and reporting
-- **Reproducible**: Exact same app set can be recreated on any Mac
-
-**🏗️ System Integration:**
-
-- **macOS Defaults**: Comprehensive system settings (Dock, Finder, keyboard)
-- **Font Management**: Programming fonts (JetBrains Mono, Noto Fonts, Source Han Sans)
-- **Shell Integration**: ZSH as system shell with enhanced cross-platform configuration
-- **User Management**: Proper user configuration with shell assignment
-- **Touch ID**: Integration for sudo authentication (where supported)
-
-**💻 Programming Environment:**
-
-- **CLI-Focused**: All development tools managed through nix
-- **No GUI Conflicts**: Homebrew manages GUI apps, nix manages CLI tools
-- **Seamless Integration**: Development tools work perfectly with GUI applications
-- **Cross-Platform Consistency**: Same CLI environment as NixOS
 
 ### 📦 Custom Packages
 
@@ -293,14 +252,14 @@ This represents a major milestone in macOS system administration - complete decl
 **📋 What Was Accomplished:**
 
 - **Before**: Manual `brew install` commands, inconsistent app management, forgotten updates
-- **After**: All 24 GUI applications declaratively managed in version-controlled configuration files
+- **After**: All 27 GUI applications declaratively managed in version-controlled configuration files
 - **Impact**: Zero manual intervention required, automatic updates, complete reproducibility
 
 **🔄 Revolutionary Update Workflow:**
 
 ```bash
 # Single command now updates EVERYTHING automatically:
-./rebuild.sh  # Updates nix packages + all 24 Homebrew apps + system settings
+./rebuild.sh  # Updates nix packages + all 27 Homebrew apps + system settings
 ```
 
 **🎯 Achieved Benefits:**
@@ -328,7 +287,7 @@ homebrew = {
     lockfiles = false;        # Don't create lock files
   };
   casks = [
-    # All 24 applications explicitly listed and managed
+    # All 27 applications explicitly listed and managed
     "baidunetdisk" "google-drive" "nutstore"           # Cloud storage
     "firefox" "google-chrome"                          # Browsers  
     "github" "jetbrains-toolbox" "visual-studio-code" # Development
@@ -338,7 +297,7 @@ homebrew = {
     "clash-verge-rev" "stats"                         # System tools
     "microsoft-office" "microsoft-auto-update"        # Office
     "steam"                                           # Gaming
-    "zotero"                                          # Academic
+    "zotero" "r" "rstudio" "mactex"                   # Academic
   ];
 };
 ```
@@ -395,7 +354,7 @@ homebrew = {
 - nix-darwin installed and configured
 - Flakes enabled in Nix configuration
 
-> **💡 Note**: This configuration is actively maintained and tested on both NixOS and macOS (Apple Silicon). The macOS configuration includes revolutionary declarative Homebrew management with automatic updates for all 24 GUI applications.
+> **💡 Note**: This configuration is actively maintained and tested on both NixOS and macOS (Apple Silicon). The macOS configuration includes revolutionary declarative Homebrew management with automatic updates for all 27 GUI applications.
 
 ### Initial Setup
 
@@ -429,7 +388,7 @@ homebrew = {
 # Validate configuration first (recommended)
 ./validate.sh
 
-# Build and switch (automatically updates all 24 Homebrew apps)
+# Build and switch (automatically updates all 27 Homebrew apps)
 ./rebuild.sh
 # or use the platform-aware alias:
 switch
@@ -459,7 +418,7 @@ darwin-rebuild switch --flake '.#EricMac'
 ```bash
 # Update all package inputs AND automatically update all Homebrew apps
 ./rebuild.sh update  # Updates flake inputs (nixpkgs, home-manager, nix-darwin)
-./rebuild.sh         # Applies updates (automatically updates 24 Homebrew apps on macOS)
+./rebuild.sh         # Applies updates (automatically updates 27 Homebrew apps on macOS)
 
 # Or step by step:
 nix flake update     # Update inputs
@@ -819,7 +778,7 @@ casks = [
 **🔄 Updating Applications:**
 
 ```bash
-./rebuild.sh  # Automatically updates all 24 Homebrew apps plus any new ones
+./rebuild.sh  # Automatically updates all 27 Homebrew apps plus any new ones
 ```
 
 **🗑️ Removing Applications:**
@@ -840,7 +799,7 @@ Using existing-app
 Installing new-app
 Upgrading outdated-app (1.0 -> 1.1)
 Uninstalling removed-app
-`brew bundle` complete! 24 Brewfile dependencies now installed.
+`brew bundle` complete! 27 Brewfile dependencies now installed.
 ```
 
 **🎯 Key Automation Features:**
@@ -1021,7 +980,7 @@ nix build .#darwinConfigurations.EricMac-aarch64.system --show-trace
 **📦 Package Management:**
 
 - **System Packages**: Managed via Nix (consistent across platforms)
-- **GUI Applications**: 
+- **GUI Applications**:
   - NixOS: Native nix packages
   - macOS: Declarative Homebrew via nix-darwin
 - **Development Tools**: Unified across platforms via shared configuration
@@ -1044,7 +1003,7 @@ This cross-platform Nix configuration represents a **major breakthrough** in mod
 **🍎 Industry-Leading Achievement: Declarative Homebrew Management:**
 
 - **World-Class Innovation**: Complete declarative management of macOS GUI applications
-- **Zero Manual Intervention**: All 24 applications update automatically during system rebuilds
+- **Zero Manual Intervention**: All 27 applications update automatically during system rebuilds
 - **Configuration as Code**: Every installation documented, version-controlled, and reproducible
 - **Automatic Maintenance**: System maintains perfect state with `cleanup = "zap"`
 - **Enterprise-Ready**: Audit trails and rollback capabilities for all app changes
@@ -1109,4 +1068,4 @@ This cross-platform Nix configuration represents a **major breakthrough** in mod
 
 ---
 
-*Last updated: June 6, 2025 | Maintained by Eric | Production-tested on NixOS & macOS Apple Silicon*
+*Last updated: June 7, 2025 | Maintained by Eric | Production-tested on NixOS & macOS Apple Silicon*
