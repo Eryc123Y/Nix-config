@@ -61,9 +61,10 @@
     initExtra = lib.mkIf pkgs.stdenv.isDarwin ''
       # Custom prompt context for Agnoster theme on Darwin
       # This changes the displayed hostname to 'nix-darwin'
+      # and sets the user@host segment to white text on a black background.
       prompt_context() {
         if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
-          prompt_segment black default "%(!.%S%F{yellow}%n%f%s.%S%F{yellow}@nix-darwin%f%s)"
+          prompt_segment black white "%(!.%S%F{white}%n%f%s.%S%F{white}@nix-darwin%f%s)"
         fi
       }
     '';
