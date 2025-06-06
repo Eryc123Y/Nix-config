@@ -8,5 +8,8 @@
     
     # command-line utilities
     kitty # setting under shell.nix
+
+    # communication
+    telegram-desktop
   ];
 }
