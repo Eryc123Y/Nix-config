@@ -21,7 +21,7 @@
     sync_to_monitor = true;
     # Clipboard and mouse
     copy_on_select = true;
-    paste_actions = "paste";
+    paste_actions = "quote-urls-at-prompt,confirm";
     mouse_hide_wait = "-1.0";
     # Scrolling
     scrollback_lines = 10000;
