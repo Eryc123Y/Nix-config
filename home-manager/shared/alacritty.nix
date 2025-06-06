@@ -340,7 +340,7 @@
         enabled = [
           {
             # Regex for URLs
-            regex = "(ipfs:|ipns:|magnet:|mailto:|gemini://|gopher://|https://|http://|news:|file:|git://|ssh:|ftp://)[^\\u0000-\\u001F\\u007F-\\u009F<>\"\\s{-}\\^⟨⟩`]+";
+            regex = ''(ipfs:|ipns:|magnet:|mailto:|gemini://|gopher://|https://|http://|news:|file:|git://|ssh:|ftp://)[^\u0000-\u001F\u007F-\u009F<>"\s{-}\^⟨⟩`]+'';
             hyperlinks = true;
             post_processing = true;
             persist = false;
@@ -351,7 +351,7 @@
           }
           {
             # Regex for file paths
-            regex = "(\\b|\\s|^)(/[^\\s<>\"'\\(\\)\\[\\]{}]+)";
+            regex = ''(\b|\s|^)(/[^\s<>"'\(\)\[\]{}]+)'';
             action = "Open";
             command = if pkgs.stdenv.isDarwin then "open" else "${pkgs.xdg-utils}/bin/xdg-open";
             binding = { key = "F"; mods = "Control|Shift"; };
