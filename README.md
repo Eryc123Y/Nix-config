@@ -88,6 +88,7 @@ Consistent development tools across both platforms:
 - Git with global configuration
 - Shell enhancements (tldr, neofetch, micro editor)
 - **Enhanced ZSH**: Cross-platform shell with Oh My Zsh, platform-specific aliases, and advanced completion
+- **Alacritty Terminal**: Cross-platform terminal with Tokyo Night theme, platform-specific keybindings, and seamless shell integration
 - Compression utilities (p7zip)
 
 ### 🐧 NixOS-Specific Features
@@ -991,6 +992,7 @@ nix build .#darwinConfigurations.EricMac-aarch64.system --show-trace
 
 - **`home-manager/shared/base.nix`**: Base user configuration and imports
 - **`home-manager/shared/zsh.nix`**: Enhanced ZSH with cross-platform features
+- **`home-manager/shared/alacritty.nix`**: Cross-platform terminal configuration
 - **`home-manager/nixos.nix`**: NixOS-specific user packages (GUI apps)
 - **`home-manager/darwin.nix`**: macOS-specific user configuration (CLI focus)
 
