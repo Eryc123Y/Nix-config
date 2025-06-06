@@ -14,7 +14,6 @@
         "git" 
         "sudo" 
         "docker" 
-        "nix-shell"
         "command-not-found"
         "history-substring-search"
         "colored-man-pages"
@@ -57,7 +56,7 @@
       refresh = "killall plasmashell && kstart5 plasmashell";
     } // lib.optionalAttrs pkgs.stdenv.isDarwin {
       # macOS-specific aliases
-      switch = "darwin-rebuild switch --flake .";
+      switch = "sudo darwin-rebuild switch --flake .#EricMac-aarch64";
       brew-update = "brew update && brew upgrade";
     };
 

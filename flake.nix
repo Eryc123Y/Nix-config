@@ -48,6 +48,13 @@
                 doCheck = false;
               });
               
+              # Override R to disable TeX dependencies
+              R = prev.R.overrideAttrs (oldAttrs: {
+                # Disable TeX Live dependencies that conflict with our overlay
+                texLive = null;
+                withRecommendedPackages = false;
+              });
+              
               # Disable TeX Live packages that cause issues
               texliveBasic = prev.hello;
               texliveMedium = prev.hello;

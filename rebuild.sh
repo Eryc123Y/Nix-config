@@ -49,11 +49,11 @@ build_config() {
             ;;
         "darwin-x86_64")
             echo "Building macOS configuration (Intel)..."
-            darwin-rebuild "$action" --flake .#EricMac
+            sudo darwin-rebuild "$action" --flake .#EricMac
             ;;
         "darwin-aarch64")
             echo "Building macOS configuration (Apple Silicon)..."
-            darwin-rebuild "$action" --flake .#EricMac-aarch64
+            sudo darwin-rebuild "$action" --flake .#EricMac-aarch64
             ;;
         *)
             echo "Unsupported platform: $platform"

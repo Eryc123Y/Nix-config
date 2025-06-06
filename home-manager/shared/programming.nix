@@ -7,6 +7,9 @@
     git
     wget
     curl
+
+    # Academic and Math Formatting
+    # quarto  # Disabled - has heavy TexLive dependencies that conflict with overlay
     
     # Programming languages and runtimes
     nodejs
@@ -39,13 +42,13 @@
     pkg-config
     
     # R Development
-    # R  # Temporarily disabled - has TexLive dependencies
+    # R  # Temporarily disabled - TeX dependencies still causing issues despite overlay
     
     # Documentation and text processing
-    # pandoc  # Temporarily disabled - has TexLive dependencies
-    # typst  # Temporarily disabled - may have TexLive dependencies
-    # typstwriter  # Temporarily disabled - may have TexLive dependencies
-    # quarto  # Keep this disabled for now as it may still have TexLive dependencies
+    pandoc       # ✅ No TeX dependencies, safe to use
+    typst        # ✅ Modern typesetting, no TeX dependencies  
+    typstwriter  # ✅ Typst editor, no TeX dependencies
+    # quarto     # Disabled - has heavy TexLive dependencies that conflict with overlay
     
     # Diagramming and planning
     d2
