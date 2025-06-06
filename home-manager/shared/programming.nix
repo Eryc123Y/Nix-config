@@ -81,6 +81,5 @@
   # Git configuration
   programs.git = {
     enable = true;
-    userName = "Eryc123Y";
   };
 }
