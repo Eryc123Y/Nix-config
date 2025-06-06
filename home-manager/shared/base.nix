@@ -9,7 +9,6 @@
   imports = [
     ./programming.nix
     ./zsh.nix
-    ./alacritty.nix
   ];
   
   # Basic user settings
