@@ -58,6 +58,16 @@
       theme = "agnoster";
     };
 
+    initExtra = lib.mkIf pkgs.stdenv.isDarwin ''
+      # Custom prompt context for Agnoster theme on Darwin
+      # This changes the displayed hostname to 'nix-darwin'
+      prompt_context() {
+        if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
+          prompt_segment black default "%(!.%S%F{yellow}%n%f%s.%S%F{yellow}@nix-darwin%f%s)"
+        fi
+      }
+    '';
+
     # Cross-platform aliases
     shellAliases = {
       # Navigation
