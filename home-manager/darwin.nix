@@ -28,13 +28,9 @@
 
   # macOS-specific environment variables
   home.sessionVariables = {
-    # Disable homebrew auto-update since brew is already installed
+    # Homebrew is now managed by nix-darwin
     HOMEBREW_NO_AUTO_UPDATE = "1";
-  };
-
-  # Override ZSH aliases for macOS
-  programs.zsh.shellAliases = {
-    # macOS-specific configuration directory
-    nx = "cd ~/.config/nix-darwin/";
+    # Ensure homebrew paths are available
+    PATH = "$PATH:/opt/homebrew/bin:/usr/local/bin";
   };
 }

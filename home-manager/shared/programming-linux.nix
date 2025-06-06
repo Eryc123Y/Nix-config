@@ -6,5 +6,11 @@
     # Linux-specific development tools
     valgrind  # Memory debugging (not available on macOS)
     strace    # System call tracer
+    
+    # packages with nix-darwin compatibility issues
+    quarto
+    R
+    texliveFull
+    
   ];
 }

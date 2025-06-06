@@ -34,8 +34,8 @@
       update = "nix flake update";
       check = "nix flake check";
       
-      # Configuration management (platform-specific, can be overridden)
-      nx = lib.mkDefault "cd /etc/nixos/";  # Can be overridden per platform
+      # Configuration management (platform-specific)
+      nx = if pkgs.stdenv.isDarwin then "cd /Users/eric/nix" else "cd /etc/nixos/";
       
       # Development shortcuts
       ghub = "cd ~/Documents/GitHub";
@@ -56,7 +56,7 @@
       refresh = "killall plasmashell && kstart5 plasmashell";
     } // lib.optionalAttrs pkgs.stdenv.isDarwin {
       # macOS-specific aliases
-      switch = "sudo darwin-rebuild switch --flake .#EricMac-aarch64";
+      switch = "sudo darwin-rebuild switch --flake '.#EricMac-aarch64'";
       brew-update = "brew update && brew upgrade";
     };
 
