@@ -31,9 +31,10 @@
       "google-drive"
       "nutstore"
       
-      # Browsers
+      # Browsers & web clients
       "firefox"
       "google-chrome"
+      "bilibili"
       
       # Development tools
       "github"
