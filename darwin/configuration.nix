@@ -55,8 +55,8 @@
     skhd = {
       enable = true;
       skhdConfig = ''
-        # Open Kitty terminal with cmd + t
-        cmd - t : open -a kitty
+        # Open Kitty terminal with ctrl + t
+        ctrl - t : open -a kitty
       '';
     };
   };
