@@ -56,7 +56,7 @@
       enable = true;
       skhdConfig = ''
         # Open Kitty terminal with ctrl + t
-        ctrl - t : open -a kitty
+        ctrl - t : /etc/profiles/per-user/eric/bin/kitty
       '';
     };
   };
