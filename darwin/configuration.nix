@@ -37,14 +37,28 @@
   # Fix for GID mismatch
   ids.gids.nixbld = 350;
 
-  # macOS system-level shell configuration
-  programs.zsh = {
-    enable = true;
-    enableCompletion = true;
-    enableBashCompletion = true;
-    
-    # Note: User aliases are handled by home-manager shared configuration
-    # This only configures system-level ZSH settings
+  # macOS system-level programs configuration
+  programs = {
+    zsh = {
+      enable = true;
+      enableCompletion = true;
+      enableBashCompletion = true;
+      
+      # Note: User aliases are handled by home-manager shared configuration
+      # This only configures system-level ZSH settings
+    };
+  };
+
+  # Services configuration
+  services = {
+    # Simple hotkey daemon for macOS
+    skhd = {
+      enable = true;
+      skhdConfig = ''
+        # Open Kitty terminal with cmd + t
+        cmd - t : open -a kitty
+      '';
+    };
   };
 
   # Essential packages for development (no GUI apps)
