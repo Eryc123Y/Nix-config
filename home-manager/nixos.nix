@@ -55,7 +55,7 @@
     texliveFull
     
     # Network and VPN
-    mihomo-party
+    clash-verge-rev
     baidupcs-go
     v2ray
     
