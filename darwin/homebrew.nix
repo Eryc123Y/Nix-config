@@ -63,6 +63,7 @@
       "stats"
       
       # Office and productivity
+      "zoom"
       "microsoft-office"
       "microsoft-auto-update"
       
