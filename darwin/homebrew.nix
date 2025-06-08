@@ -48,7 +48,8 @@
       "figma"
       "obsidian"
       "typora"
-      
+      "capcut"
+
       # Communication
       "qq"
       "wechat"
