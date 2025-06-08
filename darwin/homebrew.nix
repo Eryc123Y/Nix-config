@@ -59,7 +59,7 @@
       "cherry-studio"
       
       # Network and system tools
-      "mihomo-party"
+      #"mihomo-party"
       "stats"
       
       # Office and productivity
