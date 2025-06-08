@@ -59,7 +59,7 @@
       "cherry-studio"
       
       # Network and system tools
-      "clash-verge"
+      "clash-verge-rev"
       "stats"
       
       # Office and productivity
