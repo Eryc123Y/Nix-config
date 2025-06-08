@@ -9,6 +9,9 @@
     # command-line utilities
     kitty # setting under shell.nix
 
+    # video editing
+    openshot-qt
+
     # communication
     telegram-desktop
   ];
