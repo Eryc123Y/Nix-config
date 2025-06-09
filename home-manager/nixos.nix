@@ -71,6 +71,7 @@
     
     # PDF viewers and document tools (KDE packages)
     kdePackages.okular
+    kdePackages.kate # Add kate here
   ];
 
   # NixOS-specific programs

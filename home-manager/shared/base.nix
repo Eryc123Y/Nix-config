@@ -14,6 +14,6 @@
   
   # Basic user settings
   home.sessionVariables = {
-    EDITOR = "micro";
+    EDITOR = "kate"; # Change EDITOR to kate
   };
 }
