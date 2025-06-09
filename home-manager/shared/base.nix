@@ -14,6 +14,5 @@
   
   # Basic user settings
   home.sessionVariables = {
-    EDITOR = "kate"; # Change EDITOR to kate
   };
 }

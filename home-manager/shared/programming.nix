@@ -71,7 +71,7 @@
   
   # Programming environment variables
   home.sessionVariables = {
-    EDITOR = "micro";
+    EDITOR = "kate";
     JAVA_HOME = "${pkgs.jdk21}";
     CC = "${pkgs.gcc}/bin/gcc";
     CXX = "${pkgs.gcc}/bin/g++";
