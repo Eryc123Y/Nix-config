@@ -14,6 +14,9 @@
     # Programming languages and runtimes
     nodejs
     yarn-berry
+    pnpm
+    typescript
+    
     (python3.withPackages (ps: with ps; [
       numpy
       pandas
