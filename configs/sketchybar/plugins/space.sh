@@ -1,14 +1,12 @@
 #!/bin/bash
 
-# Simple space plugin
+# Simple space plugin without yabai
 if [ "$SENDER" = "mouse.clicked" ]; then
-  yabai -m space --focus $SID 2>/dev/null || true
+  # Use macOS native space switching instead of yabai
+  # SID represents the space number
+  osascript -e "tell application \"System Events\" to key code 18 using {control down}" 2>/dev/null || true
 fi
 
-# Get current space info
-CURRENT_SPACE=$(yabai -m query --spaces --space | jq -r '.index' 2>/dev/null || echo "")
-if [ "$CURRENT_SPACE" = "$SID" ]; then
-  sketchybar --set $NAME icon.highlight=on
-else
-  sketchybar --set $NAME icon.highlight=off
-fi
+# Simple highlighting based on click events
+# Since we can't query yabai, we'll rely on the click feedback
+sketchybar --set $NAME icon.highlight=off
