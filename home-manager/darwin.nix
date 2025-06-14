@@ -11,9 +11,7 @@
 
   # macOS-specific packages (programming environment only, no GUI apps)
   home.packages = with pkgs; [
-    # topbar beautification
-    sketchybar
-    # Dependencies for SketchyBar
+    # Keep jq as it's useful for JSON processing in general
     jq
   ];
 
@@ -45,18 +43,4 @@
     PATH = "$PATH:/opt/homebrew/bin:/usr/local/bin";
   };
 
-  # SketchyBar configuration
-  home.file.".config/sketchybar" = {
-    source = ../configs/sketchybar;
-    recursive = true;
-  };
-
-  # SketchyBar service setup
-  home.activation.sketchybar = lib.hm.dag.entryAfter ["writeBoundary"] ''
-    export PATH=${pkgs.sketchybar}/bin:$PATH
-    # Kill existing sketchybar if running
-    ${pkgs.sketchybar}/bin/sketchybar --exit-service 2>/dev/null || true
-    # Start sketchybar service
-    ${pkgs.sketchybar}/bin/sketchybar --start-service
-  '';
 }
