@@ -42,6 +42,10 @@
       "visual-studio-code"
       "cursor"
       "kate"
+
+      # macUI
+      #"sketchybar" see home manager
+      "font-hack-nerd-font"
       
       # Design and productivity
       "canva" 

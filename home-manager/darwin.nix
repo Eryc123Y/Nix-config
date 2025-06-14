@@ -11,8 +11,10 @@
 
   # macOS-specific packages (programming environment only, no GUI apps)
   home.packages = with pkgs; [
-    # macOS-specific command-line utilities
-    # (Most programming tools are already in shared/programming.nix)
+    # topbar beautification
+    sketchybar
+    # Dependencies for SketchyBar
+    jq
   ];
 
   # macOS-specific programs
@@ -42,4 +44,19 @@
     # Ensure homebrew paths are available
     PATH = "$PATH:/opt/homebrew/bin:/usr/local/bin";
   };
+
+  # SketchyBar configuration
+  home.file.".config/sketchybar" = {
+    source = ../configs/sketchybar;
+    recursive = true;
+  };
+
+  # SketchyBar service setup
+  home.activation.sketchybar = lib.hm.dag.entryAfter ["writeBoundary"] ''
+    export PATH=${pkgs.sketchybar}/bin:$PATH
+    # Kill existing sketchybar if running
+    ${pkgs.sketchybar}/bin/sketchybar --exit-service 2>/dev/null || true
+    # Start sketchybar service
+    ${pkgs.sketchybar}/bin/sketchybar --start-service
+  '';
 }
