@@ -74,7 +74,7 @@
   
   # Programming environment variables
   home.sessionVariables = {
-    EDITOR = "kate";
+    # EDITOR is set per-platform: kate on Linux, micro on macOS
     JAVA_HOME = "${pkgs.jdk21}";
     CC = "${pkgs.gcc}/bin/gcc";
     CXX = "${pkgs.gcc}/bin/g++";

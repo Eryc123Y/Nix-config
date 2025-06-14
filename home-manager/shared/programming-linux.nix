@@ -12,5 +12,8 @@
     R
     texliveFull
     
+    # Communication apps with Linux dependencies
+    telegram-desktop  # Has KDE dependencies not available on macOS
+    
   ];
 }

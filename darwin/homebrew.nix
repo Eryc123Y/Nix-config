@@ -53,6 +53,8 @@
       "qq"
       "wechat"
       "whatsapp"
+      "microsoft-teams"
+      "telegram-desktop"
       
       # AI and productivity
       "chatgpt"

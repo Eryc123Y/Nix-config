@@ -35,6 +35,8 @@
 
   # macOS-specific environment variables
   home.sessionVariables = {
+    # Use micro as the default editor on macOS since kate is Linux-only
+    EDITOR = "micro";
     # Homebrew is now managed by nix-darwin
     HOMEBREW_NO_AUTO_UPDATE = "1";
     # Ensure homebrew paths are available

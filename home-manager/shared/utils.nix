@@ -9,10 +9,8 @@
     # command-line utilities
     kitty # setting under shell.nix
 
-    # video editing
-    openshot-qt
 
-    # communication
-    telegram-desktop
+    # communication - moved to platform-specific configs
+    # telegram-desktop  # Moved to Linux-specific config due to KDE dependencies
   ];
 }

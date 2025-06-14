@@ -79,6 +79,12 @@
     # Add any NixOS-specific program configurations here
   };
 
+  # NixOS-specific environment variables
+  home.sessionVariables = {
+    # Use kate as the default editor on Linux
+    EDITOR = "kate";
+  };
+
   # NixOS-specific services
   services = {
     # Add any user services here
