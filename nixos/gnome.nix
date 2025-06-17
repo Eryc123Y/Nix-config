@@ -33,6 +33,7 @@
     gnomeExtensions.user-themes
     gnomeExtensions.appindicator 
     gnomeExtensions.dock-from-dash
+    gnomeExtensions.runcat # performance monitor
     gnomeExtensions.vitals
     gnomeExtensions.force-quit
     gnomeExtensions.clipboard-indicator 

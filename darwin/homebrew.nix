@@ -66,7 +66,7 @@
       
       # Network and system tools
       "clash-verge-rev"
-      "stats"
+      #"stats"
       
       # Office and productivity
       "zoom"
