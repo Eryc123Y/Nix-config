@@ -30,6 +30,9 @@
       "baidunetdisk"
       "google-drive"
       "nutstore"
+
+      # Learning and education
+      "eudic"
       
       # Browsers & web clients
       "firefox"
