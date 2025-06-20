@@ -73,6 +73,7 @@
       
       # Office and productivity
       "zoom"
+      "slack"
       "microsoft-office"
       "microsoft-auto-update"
       
