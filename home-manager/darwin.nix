@@ -13,8 +13,7 @@
   home.packages = with pkgs; [
     # Keep jq as it's useful for JSON processing in general
     jq
-    # virtual machine tools
-    utm
+    unrar
   ];
 
   # macOS-specific programs
