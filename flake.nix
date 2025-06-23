@@ -43,7 +43,7 @@
             nixpkgs.config.allowUnfree = true;
             
             # Override packages that cause libfaketime build issues
-            nixpkgs.overlays = [(final: prev: {
+            nixpkgs.overlays = [(final: prev: {             
               libfaketime = prev.libfaketime.overrideAttrs (oldAttrs: {
                 doCheck = false;
               });
