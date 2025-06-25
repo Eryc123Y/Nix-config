@@ -59,6 +59,19 @@
               texliveBasic = prev.hello;
               texliveMedium = prev.hello;
               texliveFull = prev.hello;
+              
+              # Fix for TBB regression causing Nix build failures on aarch64-darwin
+              # See: https://github.com/nixos/nixpkgs/issues/418695
+              # This can be removed once the upstream fix propagates
+              tbb_2021 = prev.tbb_2021.overrideAttrs (oldAttrs: {
+                version = "2021.12.0";
+                src = prev.fetchFromGitHub {
+                  owner = "oneapi-src";
+                  repo = "oneTBB";
+                  rev = "v2021.12.0";
+                  sha256 = "sha256-yG/Fs+3f9hNKzZ8le+W7+JDZk9hMzPsVAzbq0yTcUTc=";
+                };
+              });
             })];
           }
         ];
