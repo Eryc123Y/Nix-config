@@ -27,6 +27,7 @@
       jupyterlab
       requests
       beautifulsoup4
+      flask
     ]))
     
     # Java Development (OpenJDK for better cross-platform compatibility)
