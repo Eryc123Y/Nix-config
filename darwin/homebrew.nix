@@ -33,6 +33,7 @@
 
       # Learning and education
       "eudic"
+      "skim"
       
       # Browsers & web clients
       "firefox"
