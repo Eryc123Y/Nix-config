@@ -33,7 +33,7 @@
 
       # Learning and education
       "eudic"
-      "skim"
+      "pdf-expert"
       
       # Browsers & web clients
       "firefox"
