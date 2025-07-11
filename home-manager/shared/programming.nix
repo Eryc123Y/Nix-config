@@ -44,6 +44,21 @@
     ccache
     lldb
     pkg-config
+
+    # parallel programming
+    mpi
+
+    # OpenMP support
+    llvmPackages.openmp  # Cross-platform OpenMP implementation
+    
+    # OpenCL support
+    opencl-headers       # OpenCL headers for development
+    opencl-clhpp        # C++ bindings for OpenCL
+    ocl-icd             # OpenCL ICD loader (works on both platforms)
+    
+    # OpenCL development tools
+    clinfo              # OpenCL platform/device info utility
+
     
     # R Development
     # R  # Temporarily disabled - TeX dependencies still causing issues despite overlay
