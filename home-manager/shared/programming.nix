@@ -7,6 +7,7 @@
     git
     wget
     curl
+    gemini-cli
 
     # Academic and Math Formatting
     # quarto  # Disabled - has heavy TexLive dependencies that conflict with overlay
