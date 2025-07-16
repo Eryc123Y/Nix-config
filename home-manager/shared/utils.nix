@@ -10,7 +10,7 @@
     kitty # setting under shell.nix
 
     pgmodeler # PostgreSQL database modeler
-    pgadmin4
+    pgadmin4-desktopmode
     postgresql_17_jit
 
 
