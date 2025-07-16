@@ -10,6 +10,8 @@
     kitty # setting under shell.nix
 
     pgmodeler # PostgreSQL database modeler
+    pgadmin4
+    postgresql_17_jit
 
 
     # communication - moved to platform-specific configs
