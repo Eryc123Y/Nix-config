@@ -33,7 +33,6 @@
 
       # Learning and education
       "eudic"
-      "pdf-expert"
       
       # Browsers & web clients
       "firefox"
