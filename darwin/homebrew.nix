@@ -38,6 +38,7 @@
       "firefox"
       "google-chrome"
       "bilibili"
+      "chatgpt"
       
       # Development tools
       "github"
