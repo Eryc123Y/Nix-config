@@ -8,6 +8,7 @@
     wget
     curl
     gemini-cli
+    direnv # Environment variable management
 
     # Academic and Math Formatting
     # quarto  # Disabled - has heavy TexLive dependencies that conflict with overlay
