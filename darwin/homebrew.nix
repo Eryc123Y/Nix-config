@@ -35,6 +35,7 @@
       "eudic"
       
       # Browsers & web clients
+      "microsoft-edge"
       "firefox"
       "google-chrome"
       "bilibili"
